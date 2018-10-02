@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/09/26/my-first-post/">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/jvm-内存回收与分配/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhengye Zhang">
@@ -261,7 +261,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/26/my-first-post/" itemprop="url">my first post</a></h1>
+                <a class="post-title-link" href="/2018/10/02/jvm-内存回收与分配/" itemprop="url">jvm-内存回收与分配</a></h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T13:48:31+08:00">
-                2018-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:55:32+08:00">
+                2018-10-02
               </time>
             
 
@@ -283,6 +283,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -313,7 +335,20 @@
       
         
           
-            
+            <h1 id="JVM内存回收与分配策略"><a href="#JVM内存回收与分配策略" class="headerlink" title="JVM内存回收与分配策略"></a>JVM内存回收与分配策略</h1><ul>
+<li><p>对象优先在Eden区分配</p>
+</li>
+<li><p>大对象直接进入老年代:</p>
+<p>所谓大对象就是需要大量连续的内存空间的java对象<br>长期存活的对象将进入老年代：每发生一次GC，存活的对象的年+1，当对象的年龄增加到一定程度（默认15）就会进入老年代</p>
+</li>
+<li><p>动态对象年龄判断</p>
+<p>如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代</p>
+</li>
+<li><p>空间分担担保</p>
+<p>在发生GC之前，jvm先会检查老年代最大可用的连续内存空间是否大于新生代所有对象总空间。</p>
+</li>
+</ul>
+
           
         
       
@@ -361,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/09/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/jvm-垃圾回收算法简述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhengye Zhang">
@@ -380,7 +415,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/26/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/10/02/jvm-垃圾回收算法简述/" itemprop="url">jvm-垃圾回收算法简述</a></h1>
         
 
         <div class="post-meta">
@@ -392,8 +427,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T12:52:00+08:00">
-                2018-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:46:53+08:00">
+                2018-10-02
               </time>
             
 
@@ -402,6 +437,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -432,15 +489,493 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>当jvm发现内存占比超过一定阈值时会发生young gc和full gc进行垃圾回收</p>
+<h2 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h2><ul>
+<li><p>标记-清除算法<br>首先标记出所有需要回收的对象，在标记完成后统一回收所有被标记的对象。缺点：①效率低：标记和清除两个过程效率都不高。②空间碎片：会产生大量不连续的内存碎片，导致以后分配大对象时，无法找到足够的连续空间而不得不提前触发一次垃圾回收。</p>
+</li>
+<li><p>复制算法：<br>将可用内存按容量分为大小相等的两块，每次只使用其中一块。垃圾回收之后，将还存活的对象复制到另外一块，再把使用过的内存空间一次清理掉。解决了标记-清除算法的缺点，但是每次使用的内存只有原来的二分之一。当然现代虚拟机并不是1:1来划分的，而是将内存划分为一块较大的Eden和两块较小的Survivor(From Survivor、To Survivor)空间(8:1:1)，每次只使用Eden和其中一块Survivor。当回收时，将Eden和Survivor中还存活的对象一次性复制到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor空间。我们发现每次可以使用90%的内存空间，但是如果回收后的对象超过了10%的内存怎么办，也就是其中一块Survivor放不下了。这时会有分配担保机制将这些对象进去老年代。</p>
+</li>
+<li><p>标记-整理算法：<br>复制算法在对象存活率较高的情况下会变得效率低。所以老年代一般不选用复制算法。标记整理算法，标记过程和标记清除算法一样，但后续不是直接对可回收的对象进行清理，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当代虚拟机一般使用分代收集算法，在新生代只用复制算法，因为对象都是朝生夕死，只有少量存活。老年代使用标记-清除算法或者标记-整理算法，因为存活率比较高，没有额外的空间对它进行分配担保。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/jvm-之对象生死/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengye Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悟已往之不谏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/02/jvm-之对象生死/" itemprop="url">jvm-之对象生死</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:40:19+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="判断java对象存活方法"><a href="#判断java对象存活方法" class="headerlink" title="判断java对象存活方法"></a>判断java对象存活方法</h2><h3 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1.引用计数算法"></a>1.引用计数算法</h3><p>给对象中添加一个引用计数器，每当有一个地方引用它时，计数器就加一，当引用失效时，计数器就减一。任何时刻计数器为0的对象就是不能再被使用。<br>引用计数法实现简单，效率高。但是存在一个循环引用问题。<br>例：objA.inc = objB;  objB.inc = objA; objA = null; objB = null;</p>
+<h3 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h3><p>通过一系列称为”GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所有走过的路径称为引用链。当一个对象到”GC Roots”没有任何引用链相连，即从GC Roots到这个对象不可达。则证明这个对象是不可用的。</p>
+<h4 id="GC-Roots包括："><a href="#GC-Roots包括：" class="headerlink" title="GC Roots包括："></a>GC Roots包括：</h4><ul>
+<li>虚拟机栈中引用的对象 </li>
+<li>方法区中的类静态属性引用的对象 </li>
+<li>方法区中常量引用的对象 </li>
+<li>本地方法栈中JNI引用的对象</li>
+</ul>
+<h2 id="再谈引用："><a href="#再谈引用：" class="headerlink" title="再谈引用："></a>再谈引用：</h2><ul>
+<li>强引用：类似 Object obj = new Object(); obj 就是强引用。</li>
+<li>软引用：描述一些有用但并非必须的对象。在系统将要发生内存溢出异常时，会把这些对象列入回收范围。如果还没有足够的内存才会抛出内存溢出异常。SoftReference</li>
+<li>弱引用：描述非必须的对象，但强度更弱。弱引用对象只能生存到下一次垃圾回收之前。无论当前内存是否足够，都会被回收掉。WeakReference</li>
+<li>虚引用：最弱的一种引用关系。唯一的目的是能在这个对象被收集器回收时收到一个系统通知。PhantomReference</li>
+</ul>
+<h2 id="生存还是死亡："><a href="#生存还是死亡：" class="headerlink" title="生存还是死亡："></a>生存还是死亡：</h2><p>真正宣告一个对象死亡，至少压经历两次标记过程。第一次标记那些到GC Roots不可达的对象，把它们放入一个叫F-Queue的队列之中。第二次由一个jvm自动建立Finalizer线程去处理队列，对队列中的对象进行再一次标记。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/jvm-对象探秘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengye Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悟已往之不谏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/02/jvm-对象探秘/" itemprop="url">jvm 对象探秘</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:26:11+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建:"></a>对象的创建:</h3><p>当虚拟机遇到一条new指令时，首先去检查这个指令的参数是否能在常量池中定位到一个类是符号引用，并且检验这个符号引用代表的类是否已被加载过。</p>
+<h3 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h3><ol>
+<li><p>对象头 </p>
+<ul>
+<li>HashCode、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳</li>
+<li>类型指针（即对象指向它类元数据的指针）</li>
+</ul>
+</li>
+<li><p>实例数据  ：各种类型的字段内容</p>
+</li>
+<li><p>对齐填充 ：没有特定含义，起着占位符的作用</p>
+</li>
+</ol>
+<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><ul>
+<li><p>使用句柄访问</p>
+</li>
+<li><p>直接指针访问</p>
+</li>
+</ul>
+<p>使用句柄访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移到（因为垃圾回收）时只会改变句柄中到对象实例数据的指针，而reference本身不用改变。<br>使用直接指针访问方式的最大好处是速度快，它节省一次指针定位的时间开销，由于对象的访问在java中十分频繁</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/运行时数据区域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengye Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悟已往之不谏">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/02/运行时数据区域/" itemprop="url">运行时数据区域</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T17:23:10+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="JVM-运行时数据区域-主要分为两大部分："><a href="#JVM-运行时数据区域-主要分为两大部分：" class="headerlink" title="JVM 运行时数据区域 主要分为两大部分："></a>JVM 运行时数据区域 主要分为两大部分：</h2><p>###线程私有 (即所谓的线程安全):</p>
+<ol>
+<li><p>程序计数器:当前线程所执行的字节码（即.class文件，因为所有.java文件都需要编辑成.class文件才能运行。当然不一定就是.java文件，这里泛指所有能够在JVM上跑的程序。如）的行号指示器。JVM的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的。这个计数器就是为了线程切换后能恢复到正确的执行位置。</p>
+</li>
+<li><p>JVM栈: Java方法执行的内存模型：每个方法在执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每一个方法从调用直至执行完成的过程，就对应一个栈针在jvm中入栈到出栈的过程。<br>局部变量表存放了编译期间可知的各种基本数据类型（boolean、byte、short、char、int、float、double、long）、引用类型（可能是指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄）、returnAddress类型.</p>
+</li>
+<li><p>本地方法栈:类似于JVM栈，jvm栈为java方法即字节码服务，本地方法栈为Native方法服务,</p>
+</li>
+</ol>
+<p>###线程共享：</p>
+<ol>
+<li><p>java堆:所有对象实例以及数组（数组难道不是对象吗？）都在堆上分配（但并不是绝对的，因为逃逸分析的成熟）<br>逃逸分析：一个对象在方法中被创建时，当它作为参数传递给其他方法时，称为方法逃逸。当它赋值给类变量或者其他线程中的实例变量时，称为线程逃逸。这时我们就可以进行逃逸分析，如果一个对象即不是方法逃逸，又不是线程逃逸。那么我们就可以进行高效优化：1、栈上分配。2、同步消除。3、标量替换。标量指的是一个数据无法分解成更小的数据。也就是说可以将一个对象分解成其中一个或者几个字段，当然前提是这个对象不会逃逸。<br>java堆是GC（垃圾收集器）管理的主要区域。当代收集器都是采用分代收集方法。所以java堆分为新生代，年老代。新生代又分为Eden区和Survivor区，Survivor区又分为From Survivor区和To Survivor区。</p>
+</li>
+<li><p>方法区:存储已被虚拟机加载进来的类信息、常量、静态变量、编译后的代码。<br>比如Classloader引用、运行时常量池、字段数据、方法数据（即方法签名）、方法代码。</p>
+</li>
+<li><p>运行时常量池:<br>运行时常量池是方法区的一部分。用于存放编译期生成的各种字面量和符号引用（字段引用、方法引用），这部分内容将在类加载后进入方法区的运行时常量池中存放。它的一个重要特征是具有动态性:运行期间也可以将新的常量放入池中。例：String类的intern()方法。</p>
+</li>
+</ol>
+<p>直接内存：直接内存不是虚拟机运行时数据区的一部分。但是还是会引发OutOfMemoryError异常出现。在JDK 1.4中新加入了NIO。引入了一种基于通道（Channel）与缓冲区（Buffer）的I/0方式，它可以使用Native方法函数库直接分配堆外内存，然后通过一个存储在java堆中的DirectByteBuffer对象作为这块内存引用进行操作。这样可以提高性能，因为避免了在java堆和Native堆中来回复制数据（这里有点不太明白）。个人理解是java堆是属于一个进程（即jvm进程）的。而直接内存是OS本地内存。</p>
 
           
         
@@ -522,12 +1057,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             

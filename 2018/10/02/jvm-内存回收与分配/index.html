@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="勇敢的少年快去创造奇迹">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://losye.github.io/categories/index.html">
+<meta name="description" content="JVM内存回收与分配策略 对象优先在Eden区分配  大对象直接进入老年代: 所谓大对象就是需要大量连续的内存空间的java对象长期存活的对象将进入老年代：每发生一次GC，存活的对象的年+1，当对象的年龄增加到一定程度（默认15）就会进入老年代  动态对象年龄判断 如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm-内存回收与分配">
+<meta property="og:url" content="http://losye.github.io/2018/10/02/jvm-内存回收与分配/index.html">
 <meta property="og:site_name" content="悟已往之不谏">
-<meta property="og:description" content="勇敢的少年快去创造奇迹">
+<meta property="og:description" content="JVM内存回收与分配策略 对象优先在Eden区分配  大对象直接进入老年代: 所谓大对象就是需要大量连续的内存空间的java对象长期存活的对象将进入老年代：每发生一次GC，存活的对象的年+1，当对象的年龄增加到一定程度（默认15）就会进入老年代  动态对象年龄判断 如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-26T15:01:12.379Z">
+<meta property="og:updated_time" content="2018-10-02T14:59:15.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="勇敢的少年快去创造奇迹">
+<meta name="twitter:title" content="jvm-内存回收与分配">
+<meta name="twitter:description" content="JVM内存回收与分配策略 对象优先在Eden区分配  大对象直接进入老年代: 所谓大对象就是需要大量连续的内存空间的java对象长期存活的对象将进入老年代：每发生一次GC，存活的对象的年+1，当对象的年龄增加到一定程度（默认15）就会进入老年代  动态对象年龄判断 如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://losye.github.io/categories/"/>
+  <link rel="canonical" href="http://losye.github.io/2018/10/02/jvm-内存回收与分配/"/>
 
 
 
 
 
-  <title>categories | 悟已往之不谏</title>
+  <title>jvm-内存回收与分配 | 悟已往之不谏</title>
   
 
 
@@ -230,40 +230,172 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://losye.github.io/2018/10/02/jvm-内存回收与分配/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengye Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="悟已往之不谏">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/jvm/">jvm</a><span class="category-list-count">5</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">jvm-内存回收与分配</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:55:32+08:00">
+                2018-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jvm/" itemprop="url" rel="index">
+                    <span itemprop="name">jvm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="JVM内存回收与分配策略"><a href="#JVM内存回收与分配策略" class="headerlink" title="JVM内存回收与分配策略"></a>JVM内存回收与分配策略</h1><ul>
+<li><p>对象优先在Eden区分配</p>
+</li>
+<li><p>大对象直接进入老年代:</p>
+<p>所谓大对象就是需要大量连续的内存空间的java对象<br>长期存活的对象将进入老年代：每发生一次GC，存活的对象的年+1，当对象的年龄增加到一定程度（默认15）就会进入老年代</p>
+</li>
+<li><p>动态对象年龄判断</p>
+<p>如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于等于该年龄的对象就可以直接进入老年代</p>
+</li>
+<li><p>空间分担担保</p>
+<p>在发生GC之前，jvm先会检查老年代最大可用的连续内存空间是否大于新生代所有对象总空间。</p>
+</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/02/jvm-垃圾回收算法简述/" rel="next" title="jvm-垃圾回收算法简述">
+                <i class="fa fa-chevron-left"></i> jvm-垃圾回收算法简述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -296,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -348,6 +489,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JVM内存回收与分配策略"><span class="nav-number">1.</span> <span class="nav-text">JVM内存回收与分配策略</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
